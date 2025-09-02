@@ -5,7 +5,7 @@ import { AuthProvider } from "@/components/AuthProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Head from "next/head";
 
-const baseUrl = "https://www.quyech.com";
+// const baseUrl = "https://www.quyech.com";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
