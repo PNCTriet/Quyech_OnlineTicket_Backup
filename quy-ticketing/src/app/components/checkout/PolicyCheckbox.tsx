@@ -11,7 +11,7 @@ export default function PolicyCheckbox({ agreedToPolicies, onAgreementChange }: 
       <label className="flex items-center space-x-2 cursor-pointer">
         <input
           type="checkbox"
-          className="form-checkbox h-5 w-5 text-[#c53e00] rounded focus:ring-[#c53e00] bg-zinc-700 border-zinc-600"
+          className="form-checkbox h-5 w-5 text-[#2A6FB0] rounded focus:ring-[#2A6FB0] bg-zinc-700 border-zinc-600"
           checked={agreedToPolicies}
           onChange={(e) => onAgreementChange(e.target.checked)}
         />

@@ -123,8 +123,7 @@ export default function PaymentModal({ isOpen, onClose, orderInfo, countdownSeco
 
   // Tạo link QR VietQR
   // const qrUrl = `https://img.vietqr.io/image/VPB-214244527-compact.png?amount=${orderInfo.total_amount}&addInfo=OCX${orderInfo.id}&accountName=PHAM NG CAO TRIET`;
-  const qrUrl = `https://img.vietqr.io/image/VPB-0934782703-compact.png?amount=${orderInfo.total_amount}&addInfo=OCX${orderInfo.id}&accountName=LE THI NGOC HAN`;
-
+  const qrUrl = `https://img.vietqr.io/image/VPB-0966512476-compact.png?amount=${orderInfo.total_amount}&addInfo=QUY${orderInfo.id}&accountName=TRUONG HOANG NHI`;
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -186,16 +185,16 @@ export default function PaymentModal({ isOpen, onClose, orderInfo, countdownSeco
                   <div className="flex justify-between">
                     <span className="text-zinc-400">Receiver Account:</span>
                     {/* <span className="font-medium">214244527</span> */}
-                    <span className="font-medium">0934782703</span>
+                    <span className="font-medium">0966512476</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-zinc-400">Receiver :</span>
                     {/* <span className="font-medium">PHAM NG CAO TRIET</span> */}
-                    <span className="font-medium">LE THI NGOC HAN</span>
+                    <span className="font-medium">TRƯƠNG HOÀNG NHI</span>
                   </div>
                   {/* <div className="flex justify-between">
                     <span className="text-zinc-400">Amount:</span>
-                    <span className="font-medium text-[#c53e00]">{Number(orderInfo.total_amount).toLocaleString()} ₫</span>
+                    <span className="font-medium text-[#2A6FB0]">{Number(orderInfo.total_amount).toLocaleString()} ₫</span>
                   </div> */}
                 </div>
               </div>
@@ -210,7 +209,7 @@ export default function PaymentModal({ isOpen, onClose, orderInfo, countdownSeco
                   </div>
                   <div className="flex justify-between">
                     <span className="text-zinc-400">Tổng tiền:</span>
-                    <span className="font-medium text-[#c53e00]">{Number(orderInfo.total_amount).toLocaleString()} ₫</span>
+                    <span className="font-medium text-[#2A6FB0]">{Number(orderInfo.total_amount).toLocaleString()} ₫</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-zinc-400">Trạng thái:</span>
@@ -232,7 +231,7 @@ export default function PaymentModal({ isOpen, onClose, orderInfo, countdownSeco
                         </div>
                         <div className="text-right">
                           <p className="text-white font-medium">{Number(ticket.price).toLocaleString()} ₫/vé</p>
-                          <p className="text-[#c53e00] font-bold">{(Number(ticket.price) * ticket.quantity).toLocaleString()} ₫</p>
+                          <p className="text-[#2A6FB0] font-bold">{(Number(ticket.price) * ticket.quantity).toLocaleString()} ₫</p>
                         </div>
                       </div>
                     </div>

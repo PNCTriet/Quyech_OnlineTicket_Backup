@@ -36,7 +36,7 @@ function AuthCodeErrorContent() {
             <div className="space-y-4">
               <button
                 onClick={() => router.push('/auth/login')}
-                className="w-full bg-[#c53e00] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#b33800] transition-colors"
+                className="w-full bg-[#2A6FB0] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#2A6FB0]/60 transition-colors"
               >
                 Thử lại
               </button>

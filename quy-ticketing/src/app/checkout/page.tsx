@@ -54,8 +54,7 @@ function CheckoutContent() {
   const [validationErrors, setValidationErrors] = useState({
     phone: "",
     name: "",
-    policies: "",
-    facebook: ""
+    policies: ""
   });
 
   // State to track if component has mounted on client
@@ -248,21 +247,19 @@ function CheckoutContent() {
       return;
     }
 
-    // Validate user info - validate phone, name và facebook
+    // Validate user info - validate phone, name
     const isPhoneValid = /^\d{10,}$/.test(userInfo.phone);
     const isNameValid = userInfo.fullName.trim() !== "";
-    const isFacebookValid = userInfo.facebook.trim() !== "";
     
     // Set validation errors
     const newErrors = {
       phone: !isPhoneValid ? "Vui lòng nhập số điện thoại hợp lệ" : "",
       name: !isNameValid ? "Vui lòng nhập họ và tên" : "",
-      policies: !agreedToPolicies ? "Vui lòng đồng ý với điều khoản" : "",
-      facebook: !isFacebookValid ? "Vui lòng nhập link Facebook" : ""
+      policies: !agreedToPolicies ? "Vui lòng đồng ý với điều khoản" : ""
     };
     setValidationErrors(newErrors);
     
-    if (!isPhoneValid || !isNameValid || !isFacebookValid || !agreedToPolicies) {
+    if (!isPhoneValid || !isNameValid || !agreedToPolicies) {
       return;
     }
     if (!user) {
@@ -472,7 +469,7 @@ function CheckoutContent() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-[#c53e00] rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-[#2A6FB0] rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-bold">
                     {user?.email?.charAt(0).toUpperCase()}
                   </span>
@@ -534,7 +531,7 @@ function CheckoutContent() {
               <button
                 onClick={handlePayment}
                 disabled={!agreedToPolicies || isProcessingPayment}
-                className="w-full py-3 px-4 bg-[#c53e00] text-white rounded-lg font-medium hover:bg-[#b33800] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                className="w-full py-3 px-4 bg-[#2A6FB0] text-white rounded-lg font-medium hover:bg-[#2A6FB0]/60 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
                 {isProcessingPayment ? (
                   <>
@@ -570,7 +567,7 @@ function CheckoutContent() {
                 <button
                   onClick={handlePayment}
                   disabled={!agreedToPolicies}
-                  className="w-full py-3 px-4 bg-[#c53e00] text-white rounded-lg font-medium hover:bg-[#b33800] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-3 px-4 bg-[#2A6FB0] text-white rounded-lg font-medium hover:bg-[#2A6FB0]/60 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Thanh toán
                 </button>

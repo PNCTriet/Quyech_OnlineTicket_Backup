@@ -6,7 +6,6 @@ import { useAuth } from "@/components/AuthProvider";
 
 const MENU = [
   { label: { vi: "TỔNG QUAN", en: "ABOUT" }, href: "#about" },
-  { label: { vi: "NGHỆ SĨ", en: "LINE-UP" }, href: "#lineup" },
   { label: { vi: "MUA VÉ", en: "TICKETS" }, href: "#tickets" },
   { label: { vi: "FAQS", en: "FAQS" }, href: "#faq" },
 ];
@@ -49,7 +48,7 @@ export default function MainHeader({ lang, setLang }: { lang: "vi" | "en"; setLa
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 bg-[#c53e00] px-4 sm:px-12 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`} style={{ fontFamily: 'BDStreetSignSans' }}>
+    <header className={`fixed top-0 left-0 w-full z-50 bg-[#2A6FB0] px-4 sm:px-12 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`} style={{ fontFamily: 'BDStreetSignSans' }}>
       {/* MOBILE: 3-column flex, DESKTOP: flex as before */}
       <div className="flex items-center justify-between md:justify-normal md:flex-row w-full">
         {/* Hamburger - left on mobile, hidden on desktop */}
@@ -93,11 +92,11 @@ export default function MainHeader({ lang, setLang }: { lang: "vi" | "en"; setLa
             <div className="relative">
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex items-center space-x-2 p-2 rounded-full hover:bg-[#b33800] transition-colors"
+                className="flex items-center space-x-2 p-2 rounded-full hover:bg-[#2A6FB0]/60 transition-colors"
                 aria-label="User menu"
               >
                 <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-[#c53e00] text-sm font-bold">
+                  <span className="text-[#2A6FB0] text-sm font-bold">
                     {user.email?.charAt(0).toUpperCase()}
                   </span>
                 </div>
@@ -164,13 +163,13 @@ export default function MainHeader({ lang, setLang }: { lang: "vi" | "en"; setLa
         </nav>
       </div>
       {/* Mobile Dropdown Menu - left aligned */}
-      <div className={`absolute top-full left-0 w-full bg-[#c53e00] md:hidden transition-all duration-300 ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+      <div className={`absolute top-full left-0 w-full bg-[#2A6FB0] md:hidden transition-all duration-300 ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <nav className="flex flex-col items-start py-4">
           {MENU.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="w-full text-left px-4 py-3 text-xl font-medium hover:bg-[#b33800] transition-colors duration-300"
+              className="w-full text-left px-4 py-3 text-xl font-medium hover:bg-[#2A6FB0]/60 transition-colors duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label[lang]}
@@ -190,7 +189,7 @@ export default function MainHeader({ lang, setLang }: { lang: "vi" | "en"; setLa
                   setIsMenuOpen(false);
                   alert('Tính năng Profile sẽ sớm ra mắt!');
                 }}
-                className="w-full text-left px-4 py-3 text-xl font-medium hover:bg-[#b33800] transition-colors duration-300 flex items-center justify-between"
+                className="w-full text-left px-4 py-3 text-xl font-medium hover:bg-[#2A6FB0]/60 transition-colors duration-300 flex items-center justify-between"
               >
                 <span>Profile</span>
                 <span className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full">Soon</span>
@@ -200,7 +199,7 @@ export default function MainHeader({ lang, setLang }: { lang: "vi" | "en"; setLa
                   handleSignOut();
                   setIsMenuOpen(false);
                 }}
-                className="w-full text-left px-4 py-3 text-xl font-medium hover:bg-[#b33800] transition-colors duration-300"
+                className="w-full text-left px-4 py-3 text-xl font-medium hover:bg-[#2A6FB0]/60 transition-colors duration-300"
               >
                 Đăng xuất
               </button>

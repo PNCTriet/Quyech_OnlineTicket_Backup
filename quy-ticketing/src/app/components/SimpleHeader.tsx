@@ -20,7 +20,7 @@ export default function SimpleHeader({ lang, setLang }: { lang: "vi" | "en"; set
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#c53e00] px-4 sm:px-12 transition-transform duration-300" style={{ fontFamily: 'BDStreetSignSans' }}>
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#2A6FB0] px-4 sm:px-12 transition-transform duration-300" style={{ fontFamily: 'BDStreetSignSans' }}>
       <div className="flex items-center justify-between w-full">
         {/* Logo - left */}
         <div className="flex justify-start">
@@ -50,11 +50,11 @@ export default function SimpleHeader({ lang, setLang }: { lang: "vi" | "en"; set
             <div className="relative">
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex items-center space-x-2 p-2 rounded-full hover:bg-[#b33800] transition-colors"
+                className="flex items-center space-x-2 p-2 rounded-full hover:bg-[#2A6FB0]/60 transition-colors"
                 aria-label="User menu"
               >
                 <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-[#c53e00] text-sm font-bold">
+                  <span className="text-[#2A6FB0] text-sm font-bold">
                     {user.email?.charAt(0).toUpperCase()}
                   </span>
                 </div>

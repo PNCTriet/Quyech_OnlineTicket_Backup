@@ -52,7 +52,7 @@ export default function OrderSummaryCard({ totalAmount, onContinue, hasTickets, 
       <button
         onClick={onContinue}
         disabled={!hasTickets}
-        className="w-full py-3 px-4 bg-[#c53e00] text-white rounded-lg font-medium hover:bg-[#b33800] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full py-3 px-4 bg-[#2A6FB0] text-white rounded-lg font-medium hover:bg-[#2A6FB0]/60 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         Tiếp tục
       </button>

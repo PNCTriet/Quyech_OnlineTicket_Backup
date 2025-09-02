@@ -30,7 +30,7 @@ export default function ZoneConfirmationModal({ isOpen, onClose, onConfirm, zone
         <div className="flex flex-col space-y-4">
           <button
             onClick={onConfirm}
-            className="w-full py-3 px-4 bg-[#c53e00] text-white rounded-lg font-medium hover:bg-[#b33800] transition-colors"
+            className="w-full py-3 px-4 bg-[#2A6FB0] text-white rounded-lg font-medium hover:bg-[#2A6FB0]/60 transition-colors"
           >
             Thêm vào giỏ
           </button>

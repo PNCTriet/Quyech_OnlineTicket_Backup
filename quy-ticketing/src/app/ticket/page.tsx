@@ -183,7 +183,7 @@ export default function TicketOption2Page() {
         <div 
           className="fixed inset-0 z-0"
           style={{
-            backgroundImage: 'url(/images/hero_backround_ss3_alt1.svg)',
+            backgroundImage: 'url(/images/hero_backround_ss3_alt2.svg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -218,7 +218,7 @@ export default function TicketOption2Page() {
       <div 
         className="fixed inset-0 z-0"
         style={{
-          backgroundImage: 'url(/images/hero_backround_ss3_alt1.svg)',
+          backgroundImage: 'url(/images/hero_backround_ss3_alt2.svg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -239,9 +239,17 @@ export default function TicketOption2Page() {
                 <EventInfoCard event={EVENT_INFO} />
               </div>
               <div className="bg-zinc-900/30 rounded-xl p-6 shadow-lg backdrop-blur-sm">
+                <h2 className="text-2xl font-bold text-white mb-4">Sơ Đồ Chỗ Ngồi</h2>
+                <div className="mb-6">
+                  <img 
+                    src="/images/seatmap_alt1.jpg" 
+                    alt="Sơ đồ chỗ ngồi" 
+                    className="w-full h-auto rounded-lg shadow-lg"
+                  />
+                </div>
                 <h2 className="text-2xl font-bold text-white mb-4">Chọn Vé</h2>
                 <p className="text-gray-300 mb-6">
-                  Chọn loại vé phù hợp với nhu cầu của bạn. Mỗi loại vé có những đặc quyền khác nhau. Khác mỗi cái giá
+                  Chọn loại vé phù hợp với nhu cầu của bạn. Mỗi loại vé có những đặc quyền khác nhau.
                 </p>
                 <div className="space-y-4">
                   {selectedTickets
@@ -252,7 +260,14 @@ export default function TicketOption2Page() {
                         if (status === 'INACTIVE') return 1;
                         return 2; // SOLD_OUT
                       };
-                      return statusOrder(a.status) - statusOrder(b.status);
+                      const statusDiff = statusOrder(a.status) - statusOrder(b.status);
+                      if (statusDiff !== 0) return statusDiff;
+                      // Within ACTIVE group, sort by price descending
+                      if (a.status === 'ACTIVE' && b.status === 'ACTIVE') {
+                        return b.price - a.price;
+                      }
+                      // Keep original order for other statuses
+                      return 0;
                     })
                     .map((ticket) => (
                     <div 
@@ -327,11 +342,7 @@ export default function TicketOption2Page() {
                   <div className="hidden sm:block">
                     <EventInfoCard event={EVENT_INFO} />
                   </div>
-                  {/* <TicketSelectionCard 
-                    tickets={selectedTickets} 
-                    onQuantityChange={handleQuantityChange}
-                    selectedZoneId={null} // No zone selection for this option
-                  /> */}
+                  
                   <OrderSummaryCard 
                     totalAmount={totalAmount} 
                     onContinue={handleContinue}
@@ -343,8 +354,8 @@ export default function TicketOption2Page() {
             </div>
           </div>
         </main>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 } 

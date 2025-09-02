@@ -137,11 +137,11 @@ function LoginContent() {
             <div className="mt-6 text-center">
               <p className="text-zinc-400 text-sm">
                 Bằng cách đăng nhập, bạn đồng ý với{" "}
-                <a href="#" className="text-[#c53e00] hover:underline">
+                <a href="#" className="text-[#2A6FB0] hover:underline">
                   Điều khoản sử dụng
                 </a>{" "}
                 và{" "}
-                <a href="#" className="text-[#c53e00] hover:underline">
+                <a href="#" className="text-[#2A6FB0] hover:underline">
                   Chính sách bảo mật
                 </a>
               </p>

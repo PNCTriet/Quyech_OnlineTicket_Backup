@@ -49,7 +49,7 @@ export async function POST(request: Request) {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
           }
           .header { 
-            background: linear-gradient(135deg, #c53e00 0%, #ff6b35 100%); 
+            background: linear-gradient(135deg, #2A6FB0 0%, #ff6b35 100%); 
             color: white; 
             padding: 30px; 
             text-align: center; 
@@ -67,14 +67,14 @@ export async function POST(request: Request) {
             border-radius: 8px;
             padding: 20px;
             margin: 20px 0;
-            border-left: 4px solid #c53e00;
+            border-left: 4px solid #2A6FB0;
           }
           .ticket-info { 
             background-color: #f8f9fa; 
             border-radius: 8px; 
             padding: 20px; 
             margin: 20px 0; 
-            border: 2px solid #c53e00;
+            border: 2px solid #2A6FB0;
           }
           .ticket-item { 
             display: flex; 
@@ -89,11 +89,11 @@ export async function POST(request: Request) {
           .total { 
             font-weight: bold; 
             font-size: 18px; 
-            color: #c53e00; 
+            color: #2A6FB0; 
             text-align: right; 
             margin-top: 20px; 
             padding-top: 20px; 
-            border-top: 2px solid #c53e00; 
+            border-top: 2px solid #2A6FB0; 
           }
           .customer-info { 
             background-color: #e8f4fd; 
@@ -135,7 +135,7 @@ export async function POST(request: Request) {
           .qr-code img { 
             width: 150px; 
             height: 150px; 
-            border: 2px solid #c53e00; 
+            border: 2px solid #2A6FB0; 
             border-radius: 8px; 
           }
           .event-details {
@@ -146,7 +146,7 @@ export async function POST(request: Request) {
             border-left: 4px solid #28a745;
           }
           .highlight {
-            color: #c53e00;
+            color: #2A6FB0;
             font-weight: bold;
           }
         </style>
@@ -198,7 +198,7 @@ export async function POST(request: Request) {
             
             <div class="event-details">
               <h3>📅 Thông tin sự kiện</h3>
-              <p><strong>Thời gian:</strong> 27/09/2025</p>
+              <p><strong>Thời gian:</strong> 17/10/2025</p>
               <p><strong>Địa điểm:</strong> Quận Sài Gòn</p>
               <p><strong>Loại vé:</strong> Single - 489.000đ/vé</p>
             </div>

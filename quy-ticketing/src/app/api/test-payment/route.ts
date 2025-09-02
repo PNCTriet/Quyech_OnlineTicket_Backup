@@ -44,7 +44,7 @@ export async function POST() {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
           }
           .header { 
-            background: linear-gradient(135deg, #c53e00 0%, #ff6b35 100%); 
+            background: linear-gradient(135deg, #2A6FB0 0%, #ff6b35 100%); 
             color: white; 
             padding: 30px; 
             text-align: center; 

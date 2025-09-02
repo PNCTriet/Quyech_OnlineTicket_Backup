@@ -7,8 +7,8 @@ export const LAUNCH_CONFIG = {
   EVENT_INFO: {
     name: "Ớt Cay Xè mùa 4",
     description: "Sự kiện âm nhạc indie đỉnh VKL",
-    date: "27/09/2025 - 15:00",
-    location: "Capital Theatre - 212 Lý Chính Thắng, Phường 9, Quận 3, Hồ Chí Minh",
+    date: "17/10/2025 - 15:00",
+    location: "GH Complex - HCM - 319/15 Bình Quới, Phường 28, Bình Thạnh",
     organizer: "Ớt Cay Xè Organization"
   },
   
@@ -16,7 +16,7 @@ export const LAUNCH_CONFIG = {
   BRAND: {
     name: "Ớt Cay Xè",
     description: "Hệ thống đặt vé trực tuyến",
-    color: "#c53e00"
+    color: "#2A6FB0"
   }
 };
 

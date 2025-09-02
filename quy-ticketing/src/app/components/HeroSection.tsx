@@ -35,7 +35,7 @@ export default function HeroSection() {
         <div
           className="block sm:hidden w-full h-full"
           style={{
-            backgroundImage: "url(/images/hero_background_ss4_mobile.png)",
+            backgroundImage: "url(/images/hero_background_ss4_mobile.svg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -54,16 +54,16 @@ export default function HeroSection() {
             <FlameLottie />
           </div> */}
           <Image 
-            src="/images/hero_logo_ss3_alt1.svg" 
+            src="/images/hero_logo_ss3_alt1.png" 
             alt="Hero Logo" 
             width={4000} 
             height={4000} 
-            className="w-[50vw] mx-auto transition-transform duration-300 hover:scale-105 relative z-10"
+            className="w-[50vw] mx-auto transition-transform duration-300 transform translate-y-50 md:translate-y-50 hover:scale-105 relative z-10"
             priority
           />
         </div>
         {/* Event Info */}
-        <div className="mt-2 flex flex-col items-center gap-6 max-w-xl mx-auto justify-center">
+        <div className="mt-40 flex flex-col items-center pt-20  gap-6 max-w-xl mx-auto justify-center">
           {/* Date/Time Row */}
           <div className="flex items-center w-full">
             {/* Calendar Icon */}
@@ -74,8 +74,8 @@ export default function HeroSection() {
               </svg>
             </div>
             <div className="flex flex-col justify-center ml-3 text-left">
-              <span className="text-xl sm:text-2xl font-bold leading-tight">27/09/2025</span>
-              <span className="text-base sm:text-lg font-normal text-white/90 leading-tight">THỨ BẢY, 27/9/2025 | 15H - 22H</span>
+              <span className="text-xl sm:text-2xl font-bold leading-tight">17/10/2025</span>
+              <span className="text-base sm:text-lg font-normal text-white/90 leading-tight">THỨ SÁU, 17/10/2025 | 19H30 - 22H</span>
             </div>
           </div>
           {/* Location Row */}
@@ -88,8 +88,8 @@ export default function HeroSection() {
               </svg>
             </div>
             <div className="flex flex-col justify-center ml-3 text-left">
-              <span className="text-xl sm:text-2xl font-bold leading-tight"> CAPITAL THEATRE</span>
-              <span className="text-base sm:text-lg font-normal text-white/90 leading-tight">212 Lý Chính Thắng, Phường 9, Quận 3, Hồ Chí Minh</span>
+              <span className="text-xl sm:text-2xl font-bold leading-tight">GH Complex - HCM</span>
+              <span className="text-base sm:text-lg font-normal text-white/90 leading-tight">319/15 Bình Quới, Phường 28, Bình Thạnh</span>
             </div>
           </div>
         </div>
@@ -146,7 +146,7 @@ export default function HeroSection() {
             {/* Button on top */}
             <Link
               href="#tickets"
-              className="relative z-10 inline-flex items-center px-8 py-3 text-lg font-bold text-white bg-[#c53e00] rounded-full hover:bg-[#b33800] transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="relative z-10 inline-flex items-center px-8 py-3 text-lg font-bold text-white bg-[#2A6FB0] rounded-full hover:bg-[#1F5A90] transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               MUA VÉ NGAY
               <svg

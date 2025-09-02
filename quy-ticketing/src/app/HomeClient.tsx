@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import MainHeader from "./components/MainHeader";
 import HeroSection from "./components/HeroSection";
-import LineupSection from "./components/LineupSection";
+// import LineupSection from "./components/LineupSection";
 import TicketsSection from "./components/TicketsSection";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
@@ -19,7 +19,7 @@ export default function HomeClient() {
       <MainHeader lang={lang} setLang={setLang} />
       <main className="flex flex-col ">
         <HeroSection />
-        <LineupSection lang={lang} />
+        {/* <LineupSection lang={lang} /> */}
         <TicketsSection lang={lang} />
         <FAQSection lang={lang} />
       </main>

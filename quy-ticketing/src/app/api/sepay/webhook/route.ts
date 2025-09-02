@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
             id: 'auto-generated',
             name: 'Single Ticket',
             price: transferAmount,
-            color: '#c53e00',
+            color: '#2A6FB0',
             quantity: 1,
             sold: 0,
             status: 'available'

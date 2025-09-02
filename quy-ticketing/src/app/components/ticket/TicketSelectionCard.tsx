@@ -22,7 +22,7 @@ export default function TicketSelectionCard({ tickets, onQuantityChange, selecte
             key={ticket.id} 
             ref={el => { ticketRefs.current[ticket.id] = el; }}
             className={`bg-zinc-900/50 rounded-lg p-4 transition-all duration-300 ${
-              ticket.quantity > 0 ? "border-2 border-[#c53e00]" : ""}`}
+              ticket.quantity > 0 ? "border-2 border-[#2A6FB0]" : ""}`}
           >
             <div className="flex justify-between items-center mb-2">
               <div>
@@ -34,7 +34,7 @@ export default function TicketSelectionCard({ tickets, onQuantityChange, selecte
                   {ticket.status === 'ACTIVE' ? 'Còn vé' : ticket.status === 'SOLD_OUT' ? 'Hết vé' : 'Hết vé'}
                 </span>
                 {ticket.quantity > 0 && (
-                  <span className="ml-2 text-sm text-[#c53e00]">({ticket.quantity} vé)</span>
+                  <span className="ml-2 text-sm text-[#2A6FB0]">({ticket.quantity} vé)</span>
                 )}
               </div>
               <span className="text-zinc-400">{ticket.price.toLocaleString()}đ</span>
@@ -67,7 +67,7 @@ export default function TicketSelectionCard({ tickets, onQuantityChange, selecte
                   +
                 </button>
               </div>
-              <span className={`${ticket.quantity > 0 ? "text-[#c53e00]" : "text-zinc-400"}`}>
+              <span className={`${ticket.quantity > 0 ? "text-[#2A6FB0]" : "text-zinc-400"}`}>
                 {(ticket.quantity * ticket.price).toLocaleString()}đ
               </span>
             </div>
