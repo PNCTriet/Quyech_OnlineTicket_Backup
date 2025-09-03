@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import SimpleHeader from "../components/SimpleHeader";
 import EventInfoCard from "../components/ticket/EventInfoCard";
 import OrderSummaryCard from "../components/ticket/OrderSummaryCard";
+// import MaintenanceModal from "../components/MaintenanceModal";
 import Footer from "../components/Footer";
+
 import { EVENT_INFO } from "../constants/ticket";
 import { TicketType } from "../types/ticket";
 import { useRouter } from 'next/navigation';
@@ -37,10 +39,45 @@ export default function TicketOption2Page() {
   const [selectedTickets, setSelectedTickets] = useState<(TicketType & { quantity: number; availableQty: number })[]>([]);
   const [lang, setLang] = useState<"vi" | "en">("vi");
   const [showNoTicketsError, setShowNoTicketsError] = useState(false);
-  // Đã có biến loading từ useAuth, không cần khai báo lại
   const [error, setError] = useState<string | null>(null);
+  // const [isMobile, setIsMobile] = useState(false);
+  // const [showMaintenanceModal, setShowMaintenanceModal] = useState(false);
 
   const router = useRouter();
+
+  // Define fetchTickets function (plain function per sample)
+  const fetchTickets = async () => {
+    try {
+      setError(null);
+      const response = await fetch('https://api.otcayxe.com/tickets/event/cme2nmcv600a4o50wuhs1d9x2', {
+        method: 'GET',
+        headers: {
+          'accept': '*/*',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data: ApiTicketType[] = await response.json();
+      const transformedTickets = data.map(ticket => ({
+        id: ticket.id,
+        name: ticket.name,
+        price: parseInt(ticket.price),
+        color: getRandomColor(),
+        quantity: 0,
+        sold: ticket.sold_qty,
+        label: ticket.description,
+        status: ticket.status as 'INACTIVE' | 'ACTIVE' | 'SOLD_OUT',
+        availableQty: ticket.total_qty - ticket.sold_qty,
+      }));
+
+      setSelectedTickets(transformedTickets);
+    } catch {
+      setError('Không thể tải thông tin vé. Vui lòng thử lại sau.');
+    }
+  };
 
   useEffect(() => {
     // Check if we came from checkout without tickets
@@ -93,41 +130,6 @@ export default function TicketOption2Page() {
     checkBackendAuth();
   }, [user, signOut, router]);
 
-  const fetchTickets = async () => {
-    try {
-      setError(null);
-      const response = await fetch('https://api.otcayxe.com/tickets/event/cme2nmcv600a4o50wuhs1d9x2', {
-        method: 'GET',
-        headers: {
-          'accept': '*/*',
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data: ApiTicketType[] = await response.json();
-      // Transform API data to match our TicketType interface
-      const transformedTickets = data.map(ticket => ({
-        id: ticket.id,
-        name: ticket.name,
-        price: parseInt(ticket.price),
-        color: getRandomColor(), // Generate random color for each ticket
-        quantity: 0, // Initialize quantity to 0
-        sold: ticket.sold_qty,
-        label: ticket.description,
-        status: ticket.status as 'INACTIVE' | 'ACTIVE' | 'SOLD_OUT',
-        availableQty: ticket.total_qty - ticket.sold_qty, // Calculate available quantity
-      }));
-
-      setSelectedTickets(transformedTickets);
-    } catch {
-      // console.error('Error fetching tickets:', err);
-      setError('Không thể tải thông tin vé. Vui lòng thử lại sau.');
-    }
-  };
-
   const handleQuantityChange = (ticketId: string, change: number) => {
     setShowNoTicketsError(false); // Clear error when user selects tickets
     setSelectedTickets(prev =>
@@ -163,11 +165,16 @@ export default function TicketOption2Page() {
       const encodedTickets = encodeURIComponent(ticketsJson);
       router.push(`/checkout?tickets=${encodedTickets}`);
     } catch {
-      // console.error('Error encoding tickets for checkout:', error);
       // Fallback: redirect without tickets
       router.push('/checkout');
     }
   };
+
+  // MOBILE MAINTENANCE DISABLED FOR DEV TESTING
+  // If mobile, show maintenance modal and prevent access to main content
+  // if (isMobile && showMaintenanceModal) {
+  //   return <MaintenanceModal pageName="Trang chọn vé" />;
+  // }
 
   if (loading || !user) {
     return (
@@ -183,7 +190,7 @@ export default function TicketOption2Page() {
         <div 
           className="fixed inset-0 z-0"
           style={{
-            backgroundImage: 'url(/images/hero_backround_ss3_alt2.svg)',
+            backgroundImage: 'url(/images/hero_backround_ss3_alt1.svg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -218,7 +225,7 @@ export default function TicketOption2Page() {
       <div 
         className="fixed inset-0 z-0"
         style={{
-          backgroundImage: 'url(/images/hero_backround_ss3_alt2.svg)',
+          backgroundImage: 'url(/images/hero_backround_ss3_alt1.svg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -238,15 +245,8 @@ export default function TicketOption2Page() {
               <div className="block sm:hidden">
                 <EventInfoCard event={EVENT_INFO} />
               </div>
+              
               <div className="bg-zinc-900/30 rounded-xl p-6 shadow-lg backdrop-blur-sm">
-                <h2 className="text-2xl font-bold text-white mb-4">Sơ Đồ Chỗ Ngồi</h2>
-                <div className="mb-6">
-                  <img 
-                    src="/images/seatmap_alt1.jpg" 
-                    alt="Sơ đồ chỗ ngồi" 
-                    className="w-full h-auto rounded-lg shadow-lg"
-                  />
-                </div>
                 <h2 className="text-2xl font-bold text-white mb-4">Chọn Vé</h2>
                 <p className="text-gray-300 mb-6">
                   Chọn loại vé phù hợp với nhu cầu của bạn. Mỗi loại vé có những đặc quyền khác nhau.
@@ -260,14 +260,7 @@ export default function TicketOption2Page() {
                         if (status === 'INACTIVE') return 1;
                         return 2; // SOLD_OUT
                       };
-                      const statusDiff = statusOrder(a.status) - statusOrder(b.status);
-                      if (statusDiff !== 0) return statusDiff;
-                      // Within ACTIVE group, sort by price descending
-                      if (a.status === 'ACTIVE' && b.status === 'ACTIVE') {
-                        return b.price - a.price;
-                      }
-                      // Keep original order for other statuses
-                      return 0;
+                      return statusOrder(a.status) - statusOrder(b.status);
                     })
                     .map((ticket) => (
                     <div 
@@ -278,12 +271,6 @@ export default function TicketOption2Page() {
                         <div className="flex-1">
                           <div className="flex items-center gap-4 mb-3">
                             <h3 className="text-xl font-semibold text-white">{ticket.name}</h3>
-                            {/* <span 
-                              className="px-3 py-1 rounded-full text-sm font-medium"
-                              style={{ backgroundColor: ticket.color + '20', color: ticket.color }}
-                            >
-                              {ticket.label}
-                            </span> */}
                           </div>
                           <div className="flex items-center justify-between">
                             <div>
@@ -342,7 +329,6 @@ export default function TicketOption2Page() {
                   <div className="hidden sm:block">
                     <EventInfoCard event={EVENT_INFO} />
                   </div>
-                  
                   <OrderSummaryCard 
                     totalAmount={totalAmount} 
                     onContinue={handleContinue}
@@ -354,8 +340,8 @@ export default function TicketOption2Page() {
             </div>
           </div>
         </main>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 } 
