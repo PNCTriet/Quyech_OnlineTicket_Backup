@@ -1,24 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
-import Image from "next/image";
+// import { useEffect, useState } from "react";
+// import { useState } from "react";
 
-const SPONSORS = [
-  { name: "Sponsor 1", logo: "/images/sponsor_logo_4.png" },
-  { name: "Sponsor 2", logo: "/images/sponsor_logo_5.png" },
-  { name: "Sponsor 3", logo: "/images/sponsor_logo_6.png" },
-  { name: "Sponsor 4", logo: "/images/sponsor_logo_7.png" },
-  { name: "Sponsor 5", logo: "/images/sponsor_logo_8.png" },
-];
 
 export default function Footer({ variant = "default" }: { variant?: "default" | "transparent" }) {
-  const [position, setPosition] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPosition((prev) => (prev + 1) % SPONSORS.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <footer
@@ -35,7 +21,7 @@ export default function Footer({ variant = "default" }: { variant?: "default" | 
     >
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-8 px-4">
         <div className="w-full overflow-hidden">
-          <div
+          {/* <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${position * 100}%)` }}
           >
@@ -44,7 +30,7 @@ export default function Footer({ variant = "default" }: { variant?: "default" | 
                 <Image src={s.logo} alt={s.name} width={64} height={64} className="h-16 w-16 object-contain" />
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
                  {/* Social Media */}
          <div className="flex gap-4">
