@@ -343,7 +343,7 @@ export default function TicketOption2Page() {
             </div>
           </div>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );
